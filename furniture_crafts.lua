@@ -1,5 +1,4 @@
-local table_table = { --color
-{'cobble'},
+local night_table = { --color
 {'wood'},
 {'acacia_wood'},
 {'pine_wood'},
@@ -7,14 +6,14 @@ local table_table = { --color
 {'aspen_wood'}
 }
 
-for i in ipairs (table_table) do
-	local material = table_table[i][1]
+for i in ipairs (night_table) do
+	local material = night_table[i][1]
 	
 minetest.register_craft({
 	output = 'furniture_mod:bedside_cabinet_'..material,
 	recipe = {
 	{'default:'..material, 'default:'..material, 'default:'..material, },
-	{'default:'..material, 'default:'..material, 'default:'..material, },
+	{'default:'..material, 'default:chest', 'default:'..material, },
 	}
 })
 end
@@ -35,7 +34,8 @@ minetest.register_craft({
 	output = 'furniture_mod:table_'..material,
 	recipe = {
 	{'default:'..material, 'default:'..material, 'default:'..material, },
-	{'default:'..material, 'default:'..material, 'default:'..material, },
+	{'', 'default:'..material, '', },
+	{'', 'default:'..material, '', },
 	}
 })
 end
@@ -75,11 +75,25 @@ for i in ipairs (c_table) do
 
 minetest.register_craft({
 	output = 'furniture_mod:table_c_'..material,
-	recipe = {
-		{'', '', ''},
-		{'default:'..material, 'default:'..material, 'default:'..material},
-		{'default:'..material, 'default:'..material, 'default:'..material}
-		}
+	recipe = {{"furniture_mod:table_"..material, "furniture_mod:saw"}}
+})
+end
+
+local shelf = { --name, material, invimg
+{'wood'},
+{'aspen_wood'},
+{'junglewood'},
+{'acacia_wood'},
+{'pine_wood'},
+{'cobble'}
+}
+
+for i in ipairs (shelf) do
+	local material = shelf[i][1]
+
+minetest.register_craft({
+	output = 'furniture_mod:shelf_'..material,
+	recipe = {{"default:"..material, "furniture_mod:saw"}}
 })
 end
 
@@ -107,6 +121,7 @@ for i in ipairs (sofa_table) do
 minetest.register_craft({
 	output = 'furniture_mod:sofa_'..color,
 	recipe = {
+	{'', '', '', },
 	{'wool:'..color, 'wool:'..color, 'wool:'..color, },
 	{'wool:'..color, 'wool:'..color, 'wool:'..color, },
 	}
@@ -129,28 +144,32 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
-	output = 'furniture_mod:chair_wood',
-	recipe = {
-	{'default:wood', '', ''},
-	{'default:wood', 'default:wood', 'default:wood'},
-	{'default:wood', '', 'default:wood'}
-	}
-})
+local chair = { --name, material, invimg
+{'wood'},
+{'aspen_wood'},
+{'junglewood'},
+{'acacia_wood'},
+{'pine_wood'},
+{'cobble'}
+}
+
+for i in ipairs (chair) do
+	local material = chair[i][1]
 
 minetest.register_craft({
-	output = 'furniture_mod:chair_stone',
+	output = 'furniture_mod:chair_'..material,
 	recipe = {
-	{'default:cobble', '', ''},
-	{'default:cobble', 'default:cobble', 'default:cobble'},
-	{'default:cobble', '', 'default:cobble'}
+	{'default:'..material, '', ''},
+	{'default:'..material, 'default:'..material, 'default:'..material},
+	{'default:'..material, '', 'default:'..material}
 	}
 })
+end
 
 minetest.register_craft({
-	output = 'furniture_mod:stone_path',
+	output = 'furniture_mod:stone_path_1',
 	recipe = {
-	{'default:stone', 'default:stone'}
+	{'default:stone', 'default:stone', 'furniture_mod:hammer'}
 	}
 })
 
@@ -188,12 +207,36 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = 'furniture_mod:fence_2',
+	type = "shapeless",
+    recipe = {"furniture_mod:fence"},
+})
+
+minetest.register_craft({
+	output = 'furniture_mod:fence_c',
+	type = "shapeless",
+    recipe = {"furniture_mod:fence_2"},
+})
+
+minetest.register_craft({
+	output = 'furniture_mod:fence_t',
+	type = "shapeless",
+    recipe = {"furniture_mod:fence_c"},
+})
+
+minetest.register_craft({
 	output = 'furniture_mod:trash_can',
 	recipe = {
 		{'furniture_mod:s_plates', 'default:stone', 'furniture_mod:s_plates'},
 		{'default:steel_ingot', '', 'default:steel_ingot'},
 		{'default:steel_ingot', 'default:steel_ingot', 'default:steel_ingot'}
 		}
+})
+
+minetest.register_craft({
+	output = "furniture_mod:s_plates",
+	type = "shapeless",
+    recipe = {"default:steel_ingot", "furniture_mod:hammer"}
 })
 
 minetest.register_craft({

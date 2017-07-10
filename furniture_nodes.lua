@@ -169,10 +169,10 @@ minetest.register_node('furniture_mod:table_'..material, {
 	drawtype = 'nodebox',
 	tiles = {'default_'..material..'.png'},
 	inventory_image = invimg,
-	groups = {snappy=2, oddly_breakable_by_hand=2, furn=1, flammable=1},
+	groups = {snappy=2, oddly_breakable_by_hand=2, furn=1},
 	paramtype = 'light',
 	paramtype2 = 'facedir',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_wood_defaults(),
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -187,10 +187,10 @@ minetest.register_node('furniture_mod:table_top_'..material, {
 	drawtype = 'nodebox',
 	tiles = {'default_'..material..'.png'},
 	inventory_image = invimg,
-	groups = {snappy=2, oddly_breakable_by_hand=2, not_in_creative_inventory=1, flammable=1},
+	groups = {snappy=2, oddly_breakable_by_hand=2, not_in_creative_inventory=1},
 	paramtype = 'light',
 	paramtype2 = 'facedir',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_wood_defaults(),
 	drop = 'furniture_mod:table_'..material,
 	node_box = {
 		type = "fixed",
@@ -205,10 +205,10 @@ minetest.register_node('furniture_mod:table_side_'..material, {
 	drawtype = 'nodebox',
 	tiles = {'default_'..material..'.png'},
 	inventory_image = invimg,
-	groups = {snappy=2, oddly_breakable_by_hand=2, not_in_creative_inventory=1, flammable=1},
+	groups = {snappy=2, oddly_breakable_by_hand=2, not_in_creative_inventory=1},
 	paramtype = 'light',
 	paramtype2 = 'facedir',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_wood_defaults(),
 	drop = 'furniture_mod:table_'..material,
 	node_box = {
 		type = "fixed",
@@ -331,7 +331,7 @@ minetest.register_node('furniture_mod:table_c_'..material, {
 	inventory_image = invimg,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_wood_defaults(),
 	selection_box = {
 		type = 'fixed',
 		fixed = {-.5, -.5, -.5, .5, 0, .5}, 
@@ -373,15 +373,15 @@ minetest.register_node('furniture_mod:chair_'..material, {
 	selection_box = {
 		type = 'fixed',
 		fixed = {
-			{-.5, -.5, -.5, .5, 0, .5},
-			{-.5, 0, .5, .5, .6, .4},
+			{-.4, -.4, -.3, .4, 0, .5},
+			{-.4, 0, .3, .4, .62, .4},
 			}
 		},
 	collision_box = {
 		type = 'fixed',
 		fixed = {
-			{-.5, -.5, -.5, .5, 0, .5},
-			{-.5, 0, .5, .5, .6, .4},
+			{-.4, -.4, -.3, .4, 0, .5},
+			{-.4, 0, .3, .4, .62, .4},
 			}
 		},
 })
@@ -415,10 +415,11 @@ minetest.register_node('furniture_mod:sofa_'..color, {
 	drawtype = 'mesh',
 	mesh = 'FM_sofa.obj',
 	tiles = {'wool_'..color..'.png'},
-	groups = {cracky=3, oddly_breakable_by_hand=2, flammable=1, furn=1},
+	groups = {cracky=3, oddly_breakable_by_hand=2, flammable=1, furn=1, fall_damage_add_percent=-80, bouncy=80},
 	inventory_image = 'fm_sofa.png^[colorize:'..hex,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
+	sounds = {wood = {name="furn_bouncy", gain=0.8}},
 	on_rightclick = function(pos, node, clicker)
 		furniture_mod.sit(pos, node, clicker)
 		end,
@@ -447,10 +448,11 @@ minetest.register_node('furniture_mod:sofa_l_'..color, {
 	drawtype = 'mesh',
 	mesh = 'FM_sofa_l.obj',
 	tiles = {'wool_'..color..'.png'},
-	groups = {cracky=3, oddly_breakable_by_hand=2, flammable=1, not_in_creative_inventory=1},
+	groups = {cracky=3, oddly_breakable_by_hand=2, flammable=1, not_in_creative_inventory=1, fall_damage_add_percent=-80, bouncy=80},
 	drop = 'furniture_mod:sofa_'..color,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
+	sounds = {wood = {name="furn_bouncy", gain=0.8}},
 	selection_box = {
 		type = 'fixed',
 		fixed = {
@@ -477,10 +479,11 @@ minetest.register_node('furniture_mod:sofa_m_'..color, {
 	drawtype = 'mesh',
 	mesh = 'FM_sofa_m.obj',
 	tiles = {'wool_'..color..'.png'},
-	groups = {cracky=3, oddly_breakable_by_hand=2, flammable=1, not_in_creative_inventory=1},
+	groups = {cracky=3, oddly_breakable_by_hand=2, flammable=1, not_in_creative_inventory=1, fall_damage_add_percent=-80, bouncy=80},
 	drop = 'furniture_mod:sofa_'..color,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
+	sounds = {wood = {name="furn_bouncy", gain=0.8}},
 	selection_box = {
 		type = 'fixed',
 		fixed = {
@@ -505,10 +508,11 @@ minetest.register_node('furniture_mod:sofa_r_'..color, {
 	drawtype = 'mesh',
 	mesh = 'FM_sofa_r.obj',
 	tiles = {'wool_'..color..'.png'},
-	groups = {cracky=3, oddly_breakable_by_hand=2, flammable=1, not_in_creative_inventory=1},
+	groups = {cracky=3, oddly_breakable_by_hand=2, flammable=1, not_in_creative_inventory=1, fall_damage_add_percent=-80, bouncy=80},
 	drop = 'furniture_mod:sofa_'..color,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
+	sounds = {wood = {name="furn_bouncy", gain=0.8}},
 	selection_box = {
 		type = 'fixed',
 		fixed = {
@@ -535,10 +539,11 @@ minetest.register_node('furniture_mod:sofa_c_'..color, {
 	drawtype = 'mesh',
 	mesh = 'FM_sofa_c.obj',
 	tiles = {'wool_'..color..'.png'},
-	groups = {cracky=3, oddly_breakable_by_hand=2, flammable=1, not_in_creative_inventory=1, furn=1},
+	groups = {cracky=3, oddly_breakable_by_hand=2, flammable=1, not_in_creative_inventory=1, furn=1, fall_damage_add_percent=-80, bouncy=80},
 	drop = 'furniture_mod:sofa_'..color,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
+	sounds = {wood = {name="furn_bouncy", gain=0.8}},
 	selection_box = {
 		type = 'fixed',
 		fixed = {
@@ -614,6 +619,121 @@ minetest.register_node('furniture_mod:cup', {
 			{-0.125, -0.5, -0.1875, 0.125, -0.0625, -0.125}, -- NodeBox5
 		}
 	}
+})
+
+minetest.register_node('furniture_mod:s_plates', {
+	description = 'Steel Plate',
+	drawtype = 'nodebox',
+	tiles = {{name="default_steel_block.png"}},
+	groups = {cracky=2, oddly_breakable_by_hand=5, furn=1},
+	paramtype = 'light',
+	paramtype2 = 'facedir',
+	sounds = default.node_sound_stone_defaults(),
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5},
+		}
+	}
+})
+
+minetest.register_node('furniture_mod:plate', {
+	description = 'Plate',
+	drawtype = 'nodebox',
+	tiles = {{name="default_coral_skeleton.png"}},
+	groups = {cracky=2, oddly_breakable_by_hand=5, furn=1},
+	paramtype = 'light',
+	paramtype2 = 'facedir',
+	sounds = default.node_sound_stone_defaults(),
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.5, -0.3125, 0.3125, -0.4375, 0.3125}, -- NodeBox1
+			{-0.375, -0.4375, -0.375, -0.3125, -0.375, 0.375}, -- NodeBox6
+			{-0.3125, -0.4375, 0.3125, 0.375, -0.375, 0.375}, -- NodeBox7
+			{0.3125, -0.4375, -0.375, 0.375, -0.375, 0.3125}, -- NodeBox8
+			{-0.3125, -0.4375, -0.375, 0.3125, -0.375, -0.3125}, -- NodeBox9
+			{-0.375, -0.375, -0.5, 0.375, -0.3125, -0.375}, -- NodeBox10
+			{-0.375, -0.375, 0.375, 0.375, -0.3125, 0.5}, -- NodeBox11
+			{-0.5, -0.375, -0.5, -0.375, -0.3125, 0.5}, -- NodeBox12
+			{0.375, -0.375, -0.5, 0.5, -0.3125, 0.5}, -- NodeBox14
+		}
+	}
+})
+
+minetest.register_node('furniture_mod:bowl', {
+	description = 'Bowl',
+	drawtype = 'nodebox',
+	tiles = {{name="default_coral_skeleton.png"}},
+	groups = {cracky=2, oddly_breakable_by_hand=5, furn=1},
+	paramtype = 'light',
+	paramtype2 = 'facedir',
+	sounds = default.node_sound_stone_defaults(),
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.5, -0.3125, 0.3125, -0.4375, 0.3125}, -- NodeBox1
+			{-0.4375, -0.5, 0.3125, 0.4375, -0.1875, 0.4375}, -- NodeBox16
+			{-0.4375, -0.5, -0.4375, -0.3125, -0.1875, 0.3125}, -- NodeBox17
+			{0.3125, -0.5, -0.4375, 0.4375, -0.1875, 0.3125}, -- NodeBox18
+			{-0.3125, -0.5, -0.4375, 0.3125, -0.1875, -0.3125}, -- NodeBox19
+		}
+	}
+})
+
+minetest.register_node('furniture_mod:cupboard_wood', {
+	description = 'Cupboard',
+	drawtype = 'mesh',
+	mesh = 'cupboard.obj',
+	tiles = {{name="cupboard_wood.png"}},
+	groups = {cracky=2, oddly_breakable_by_hand=5, furn=1},
+	paramtype = 'light',
+	paramtype2 = 'facedir',
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('furniture_mod:cupboard_acacia', {
+	description = 'Acacia Cupboard',
+	drawtype = 'mesh',
+	mesh = 'cupboard.obj',
+	tiles = {{name="cupboard_acacia.png"}},
+	groups = {cracky=2, oddly_breakable_by_hand=5, furn=1},
+	paramtype = 'light',
+	paramtype2 = 'facedir',
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('furniture_mod:cupboard_aspen', {
+	description = 'Aspen Cupboard',
+	drawtype = 'mesh',
+	mesh = 'cupboard.obj',
+	tiles = {{name="cupboard_aspen.png"}},
+	groups = {cracky=2, oddly_breakable_by_hand=5, furn=1},
+	paramtype = 'light',
+	paramtype2 = 'facedir',
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('furniture_mod:cupboard_jungle', {
+	description = 'Jungle Cupboard',
+	drawtype = 'mesh',
+	mesh = 'cupboard.obj',
+	tiles = {{name="cupboard_jungle.png"}},
+	groups = {cracky=2, oddly_breakable_by_hand=5, furn=1},
+	paramtype = 'light',
+	paramtype2 = 'facedir',
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node('furniture_mod:cupboard_pine', {
+	description = 'Pine Cupboard',
+	drawtype = 'mesh',
+	mesh = 'cupboard.obj',
+	tiles = {{name="cupboard_pine.png"}},
+	groups = {cracky=2, oddly_breakable_by_hand=5, furn=1},
+	paramtype = 'light',
+	paramtype2 = 'facedir',
+	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node('furniture_mod:stone_path_1', {
@@ -834,7 +954,7 @@ minetest.register_node("furniture_mod:fence", {
 
 local fence_texture = "FM_fence_overlay.png^default_steel_block.png^FM_fence_overlay.png^[makealpha:255,126,126"
 minetest.register_node("furniture_mod:fence_2", {
-	description = "Picket Fence",
+	description = "Picket Fence 2",
 	drawtype = "nodebox",
 	tiles = {"default_steel_block.png"},
 	inventory_image = fence_texture,
@@ -852,18 +972,18 @@ minetest.register_node("furniture_mod:fence_2", {
 			{-0.5, 0.25, -0.0625, 0.5, 0.375, 0.0625}, -- NodeBox5
 		}
 	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, not_in_creative_inventory=1},
+	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 local fence_texture = "FM_fence_overlay.png^default_steel_block.png^FM_fence_overlay.png^[makealpha:255,126,126"
 minetest.register_node('furniture_mod:fence_c', {
-	description = "Picket Fence",
+	description = "Picket Fence (C-Bracket)",
 	drawtype = 'nodebox',
 	tiles = {'default_steel_block.png'},
 	inventory_image = fence_texture,
 	wield_image = fence_texture,
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, not_in_creative_inventory=1},
+	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2},
 	paramtype = 'light',
 	paramtype2 = 'facedir',
 	sounds = default.node_sound_wood_defaults(),
@@ -884,12 +1004,12 @@ minetest.register_node('furniture_mod:fence_c', {
 
 local fence_texture = "FM_fence_overlay.png^default_steel_block.png^FM_fence_overlay.png^[makealpha:255,126,126"
 minetest.register_node('furniture_mod:fence_t', {
-	description = "Picket Fence",
+	description = "Picket Fence (T-Bracket)",
 	drawtype = 'nodebox',
 	tiles = {'default_steel_block.png'},
 	inventory_image = fence_texture,
 	wield_image = fence_texture,
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, not_in_creative_inventory=1},
+	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2},
 	paramtype = 'light',
 	paramtype2 = 'facedir',
 	sounds = default.node_sound_wood_defaults(),
@@ -910,7 +1030,8 @@ minetest.register_node('furniture_mod:fence_t', {
 })
 
 local songs = { "spongebob_squarepants",
-"tobymac"
+"phineas_ferb",
+"scooby_doo"
 }
 
 minetest.register_node("furniture_mod:radio", {
@@ -975,7 +1096,7 @@ minetest.register_node('furniture_mod:tv_nc', {
         minetest.sound_stop(meta:get_string("hwnd"))
         meta:set_string("hwnd",nil)
     else
-        meta:set_string("hwnd",minetest.sound_play("doorbell", {gain = 0.5, max_hear_distance = 25}))
+        meta:set_string("hwnd",minetest.sound_play("tv_static", {gain = 0.5, max_hear_distance = 25}))
     end
     end,
     on_destruct = function(pos)
@@ -1041,7 +1162,7 @@ minetest.register_node('furniture_mod:tv_cube', {
 		type = 'fixed',
 		fixed = {-.4, -.5, -.2, .4, -.1, .2},
 		},
-	 on_rightclick = function(pos, node, clicker, itemstack)
+	  on_rightclick = function(pos, node, clicker, itemstack)
     local meta = minetest.env:get_meta(pos)
 	node.name = "furniture_mod:tv_off"
 		minetest.set_node(pos, node)

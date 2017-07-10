@@ -3,4 +3,3 @@ fire
 stairs
 wool
 xpanes
-laptop?

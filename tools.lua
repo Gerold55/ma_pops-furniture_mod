@@ -89,6 +89,10 @@ minetest.register_tool('furniture_mod:hammer_1', {
 		local node = minetest.get_node(pos)
 		local table_table = { --material
 		{'wood'},
+		{'acacia_wood'},
+		{'aspen_wood'},
+		{'junglewood'},
+		{'pine_wood'},
 		{'cobble'}
 		}
 	
@@ -105,7 +109,7 @@ minetest.register_tool('furniture_mod:hammer_1', {
 			minetest.set_node(pos,{name = 'furniture_mod:table_'..mat, param2=node.param2})
 		end
 			end
-		if node.name == 'furniture_mod:counter' then
+		if node.name == 'furniture_mod:counter_wall' then
 			minetest.set_node(pos,{name = 'furniture_mod:counter_mid', param2=node.param2})
 		end
 		if node.name == 'furniture_mod:counter_mid' then
@@ -117,10 +121,6 @@ minetest.register_tool('furniture_mod:hammer_1', {
 		if node.name == 'furniture_mod:counter_sink' then
 			minetest.set_node(pos,{name = 'furniture_mod:counter_wall', param2=node.param2})
 			end
-				if node.name == 'furniture_mod:counter_wall' then
-					minetest.set_node(pos,{name = 'furniture_mod:counter', param2=node.param2})
-				end
-			
 		if not minetest.setting_getbool("creative_mode") then
 			itemstack:add_wear(65535 / (USES - 1))
 		end
