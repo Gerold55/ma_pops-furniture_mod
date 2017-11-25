@@ -150,6 +150,18 @@ minetest.register_node('furniture_mod:bed', {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node('furniture_mod:c_tree', {
+	description = "Christmas Tree",
+	drawtype = 'mesh',
+	mesh = 'c_tree.obj',
+	inventory_image= 'tree.png',
+	tiles = {'c_tree.png'},
+	groups = {snappy=2, oddly_breakable_by_hand=2, flammable=1},
+	paramtype = 'light',
+	paramtype2 = 'facedir',
+	sounds = default.node_sound_wood_defaults(),
+})
+
 local table_table = { --name, material, invimg
 {'Stone Table', 'cobble', 'fm_table_stone.png'},
 {'Wood Table', 'wood', 'fm_table_wood.png'},
@@ -360,7 +372,7 @@ for i in ipairs (chair_table) do
 minetest.register_node('furniture_mod:chair_'..material, {
 	description = name,
 	drawtype = 'mesh',
-	mesh = 'FM_chair.obj',
+	mesh = 'chair1.obj',
 	tiles = {'default_'..material..'.png'},
 	groups = {choppy=2, oddly_breakably_by_hand=2, furn=1, flammable=1},
 	inventory_image = invimg,
