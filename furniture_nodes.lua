@@ -372,7 +372,7 @@ for i in ipairs (chair_table) do
 minetest.register_node('furniture_mod:chair_'..material, {
 	description = name,
 	drawtype = 'mesh',
-	mesh = 'chair1.obj',
+	mesh = 'FM_chair.obj',
 	tiles = {'default_'..material..'.png'},
 	groups = {choppy=2, oddly_breakably_by_hand=2, furn=1, flammable=1},
 	inventory_image = invimg,
