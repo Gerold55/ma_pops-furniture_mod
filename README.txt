@@ -3,11 +3,11 @@ Ma & Pop's Furniture Mod created by GamingAssociation39
 ================================================================
 Credits:
 Radio Mod Code (Mihobre)
-BlockMen (Lots and lots)     |For helping me alot with the code
+BlockMen (Lots and lots)    |For helping me alot with the code
                             |Letting me experiment with his mod
                             |Supporting me all the time
                             |Encouraging me
-DanJohansen(Newgrounds)     |All music used),
+DanJohansen(Newgrounds)     |All music used
 
 Nathan.S		     Helped with a ton of the coding and models making this mod possible
 ================================================================
