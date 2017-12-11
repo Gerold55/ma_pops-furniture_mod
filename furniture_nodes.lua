@@ -1836,6 +1836,32 @@ minetest.register_node('furniture_mod:w_machine', {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node("furniture_mod:retro_console", {
+description = "VeNext Retro Console",
+tiles = {
+				"bluetop.png",
+				"blueb.png",
+				"blues.png",
+				"blues2.png",
+				"blueback.png",
+				"bluef.png",
+			},
+        
+groups = {snappy=1,bendy=2,cracky=1},
+        drawtype = "nodebox",
+			paramtype = "light",
+			paramtype2 = 'facedir',
+			node_box = {
+				type = "fixed",
+				fixed = {
+					{-0.4375, -0.5, -0.4375, 0.4375, -0.1875, 0.4375},
+					{-0.375, -0.1875, -0.375, 0.375, -0.0625, 0.375},
+					{0.3125, -0.4375, -0.5, 0.375, -0.375, -0.4375}, 
+					{0.1875, -0.4375, -0.5, 0.25, -0.375, -0.4375}, 
+				}
+			}
+})
+
 minetest.register_tool('furniture_mod:saw', {
 	description = 'Saw',
 	inventory_image = 'fm_saw.png',
