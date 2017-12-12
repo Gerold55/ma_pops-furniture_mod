@@ -1837,7 +1837,7 @@ minetest.register_node('furniture_mod:w_machine', {
 })
 
 minetest.register_node("furniture_mod:retro_console", {
-description = "VeNext Retro Console",
+description = "veNext Retro Console",
 tiles = {
 				"bluetop.png",
 				"blueb.png",
